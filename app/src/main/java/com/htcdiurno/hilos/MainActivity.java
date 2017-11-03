@@ -25,35 +25,42 @@ public class MainActivity extends AppCompatActivity {
         int n = Integer.parseInt(entrada.getText().toString());
 
         salida.append(n + "! = ");
+        int res = factorial(n);
 
-        MiThread thread = new MiThread(n);
+        MiThread thread = new MiThread(res);
 
         thread.start();
 
-
-       /* int n = Integer.parseInt(entrada.getText().toString());
-        salida.append(n +"! = ");
-        int res = factorial(n);
-        salida.append(res +"\n");*/
     }
 
     public int factorial(int n) {
-        int res=1;
-        for (int i=1; i<=n; i++){
-            res*=i;
+        int res = 1;
+        for (int i = 1; i <= n; i++) {
+            res *= i;
             SystemClock.sleep(1000);
         }
 
         return res;
-
     }
 
     class MiThread extends Thread {
-        private int n, res;
+        private int res;
 
+        public MiThread(int res){
+            this.res = res;
+        }
 
-        public MiThread(int n) {
-            this.n = n;
+        @Override
+        public void run() {
+
+            //Solución con runOnUIThread================================
+            runOnUiThread(new Runnable() {
+                @Override public void run() {
+                    salida.append(res + "\n");
+                }
+            });
+            //==========================================================
+            
         }
     }
 

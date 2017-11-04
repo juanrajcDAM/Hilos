@@ -16,6 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ROUT" />
+        <activity android:name=".ConPost" />
+        <activity android:name=".ConHandler" />
     </application>
 
 </manifest>

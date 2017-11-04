@@ -4,35 +4,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    <LinearLayout
+
+
+    <Button
+        android:id="@+id/button"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:text="RunOnUiThread"
+        android:onClick="mostrar_ROUT"/>
 
-        <EditText
-
-            android:id="@+id/entrada"
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:inputType="numberDecimal"
-            android:text="5" >
-
-            <requestFocus />
-        </EditText>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="calcularOperacion"
-            android:text="Calcular factorial" />
-
-    </LinearLayout>
-
-    <TextView
-
-        android:id="@+id/salida"
+    <Button
+        android:id="@+id/button2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text=" "
-        android:textAppearance="?android:attr/textAppearanceMedium"/>
+        android:layout_height="wrap_content"
+        android:text="Post"
+        android:onClick="mostrar_Post"/>
 
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Handler"
+        android:onClick="mostrar_Handler"/>
 </LinearLayout>

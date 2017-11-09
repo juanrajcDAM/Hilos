@@ -17,7 +17,7 @@ public class ConHandler extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_con_post);
+        setContentView(R.layout.activity_con_handler);
         entrada = (EditText) findViewById(R.id.entrada3);
         salida = (TextView) findViewById(R.id.salida3);
     }
@@ -56,18 +56,19 @@ public class ConHandler extends AppCompatActivity {
         public void run() {
 
             //Solución con Handler======================================
-            Message msg = new Message();
-            msg.obj=(res+"\n");
+            Message msg = puente.obtainMessage();
+            Bundle b=new Bundle();
+            b.putString("s", res+"\n");
+            msg.setData(b);
             puente.sendMessage(msg);
-
         }
     }
 
     private Handler puente = new Handler() {
         @Override
         public void handleMessage(Message msg) {
-            salida.append((String)msg.obj);
+            salida.append(msg.getData().getString("s"));
         }
     };
-    //===================================================================
+    //==================================================================
 }
